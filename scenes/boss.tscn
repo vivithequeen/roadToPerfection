@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://hcab7uq4wdty"]
+
+[ext_resource type="Script" path="res://scripts/boss.gd" id="1_7olbk"]
+[ext_resource type="Texture2D" uid="uid://ba6h6cp05yk1w" path="res://resources/png/Sprite-0003.png" id="1_mqm2n"]
+
+[node name="boss" type="Node2D"]
+script = ExtResource("1_7olbk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(8, 8)
+texture = ExtResource("1_mqm2n")

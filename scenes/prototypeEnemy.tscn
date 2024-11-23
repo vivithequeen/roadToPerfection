@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://drm72bsls152i"]
+
+[ext_resource type="Script" path="res://scripts/prototype_enemy.gd" id="1_osr3i"]
+[ext_resource type="AudioStream" uid="uid://0h5kmfomskr8" path="res://resources/audio/dmg_audio.mp3" id="2_4maxx"]
+[ext_resource type="Texture2D" uid="uid://bw8ca0ffbddyi" path="res://resources/png/boss man (1).png" id="2_u6qlt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0xya"]
+size = Vector2(64, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vc0yi"]
+size = Vector2(80, 128)
+
+[node name="Node2D" type="CharacterBody2D"]
+script = ExtResource("1_osr3i")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_4maxx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 9.53674e-07)
+scale = Vector2(2.88984, 3.38524)
+texture = ExtResource("2_u6qlt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_t0xya")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_vc0yi")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=3 uid="uid://d32dwkr7b8jrt"]
+
+[ext_resource type="FontFile" uid="uid://crtu1smqnc50g" path="res://resources/PixelifySans-VariableFont_wght.ttf" id="1_ff02r"]
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_k0ow4"]
+[ext_resource type="Texture2D" uid="uid://bw8ca0ffbddyi" path="res://resources/png/boss man (1).png" id="2_sc1ry"]
+
+[sub_resource type="Theme" id="Theme_vvvfq"]
+Button/font_sizes/font_size = 40
+Button/fonts/font = ExtResource("1_ff02r")
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k0ow4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.615686, 0.215686, 1, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 559.0
+offset_bottom = 127.0
+theme_override_fonts/font = ExtResource("1_ff02r")
+theme_override_font_sizes/font_size = 52
+text = "ROAD TO PERFECTION"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 200.0
+offset_right = 164.0
+offset_bottom = 257.0
+
+[node name="play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_vvvfq")
+text = "      PLAY      "
+
+[node name="settings" type="Button" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+theme = SubResource("Theme_vvvfq")
+text = "      SETTINGS      "
+
+[node name="quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_vvvfq")
+text = "      QUIT      "
+
+[node name="BossMan(1)" type="Sprite2D" parent="."]
+position = Vector2(744, 288)
+rotation = 0.261799
+scale = Vector2(12, 12)
+texture = ExtResource("2_sc1ry")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 376.0
+offset_right = 363.0
+offset_bottom = 573.0
+theme_override_fonts/font = ExtResource("1_ff02r")
+theme_override_font_sizes/font_size = 30
+text = "CONTROLS:
+WASD - Movement / 
+Attack Direction
+LMB - Attack
+MIDDLE MOUSE - Dash
+"
+
+[connection signal="pressed" from="VBoxContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]

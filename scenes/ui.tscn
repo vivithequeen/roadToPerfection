@@ -1,0 +1,99 @@
+[gd_scene load_steps=8 format=3 uid="uid://dhle2updlchyp"]
+
+[ext_resource type="FontFile" uid="uid://crtu1smqnc50g" path="res://resources/PixelifySans-VariableFont_wght.ttf" id="1_mj0ra"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vkge8"]
+bg_color = Color(0.6, 0, 0.309804, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kkg2s"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_iglsu"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_vkge8")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_kkg2s")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ar434"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_52y78"]
+bg_color = Color(0, 0, 0.0862745, 1)
+
+[sub_resource type="Theme" id="Theme_iqu40"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_ar434")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_52y78")
+
+[node name="ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 2
+offset_left = 64.0
+offset_top = 600.0
+offset_right = 576.0
+offset_bottom = 627.0
+theme = SubResource("Theme_iglsu")
+max_value = 75.0
+step = 1.0
+show_percentage = false
+
+[node name="ProgressBar2" type="ProgressBar" parent="."]
+offset_left = 1088.0
+offset_top = 627.0
+offset_right = 1600.0
+offset_bottom = 654.0
+rotation = 3.14159
+theme = SubResource("Theme_iglsu")
+max_value = 75.0
+step = 1.0
+show_percentage = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_top = 587.0
+offset_right = 1152.0
+offset_bottom = 636.0
+
+[node name="Label" type="Label" parent="CenterContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_mj0ra")
+theme_override_font_sizes/font_size = 34
+text = "ALSO YOU"
+
+[node name="ProgressBar3" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 40.0
+offset_right = 576.0
+offset_bottom = 67.0
+theme = SubResource("Theme_iqu40")
+max_value = 20.0
+value = 20.0
+show_percentage = false
+
+[node name="ProgressBar4" type="ProgressBar" parent="."]
+offset_left = 1088.0
+offset_top = 67.0
+offset_right = 1600.0
+offset_bottom = 94.0
+rotation = 3.14159
+theme = SubResource("Theme_iqu40")
+max_value = 20.0
+value = 20.0
+show_percentage = false
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+offset_top = 32.0
+offset_right = 1152.0
+offset_bottom = 81.0
+
+[node name="Label" type="Label" parent="CenterContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_mj0ra")
+theme_override_font_sizes/font_size = 28
+text = "YOU
+"

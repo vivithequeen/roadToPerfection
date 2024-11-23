@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfja8tsrh7txr"]
+
+[ext_resource type="PackedScene" uid="uid://btmchq3g4fqhw" path="res://scenes/player.tscn" id="1_d5lxu"]
+[ext_resource type="Script" path="res://scripts/poko.gd" id="1_yb75t"]
+[ext_resource type="PackedScene" uid="uid://b8mowy28lliqt" path="res://scenes/poko_test.tscn" id="3_y884e"]
+[ext_resource type="PackedScene" uid="uid://cnjvddrrs6x0r" path="res://scenes/spike.tscn" id="4_75qjj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ufx60"]
+size = Vector2(40, 40)
+
+[node name="test_level" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-752, 608)
+scale = Vector2(61.014, 1)
+script = ExtResource("1_yb75t")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_right = 32.0
+offset_bottom = 40.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_ufx60")
+
+[node name="player" parent="." instance=ExtResource("1_d5lxu")]
+position = Vector2(368, 568)
+
+[node name="pokoTest" parent="." instance=ExtResource("3_y884e")]
+position = Vector2(600, 584)
+
+[node name="spike" parent="." instance=ExtResource("4_75qjj")]
+position = Vector2(752, 576)

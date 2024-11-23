@@ -1,0 +1,97 @@
+[gd_scene load_steps=9 format=3 uid="uid://c0g1vydbpqi3"]
+
+[ext_resource type="Script" path="res://scripts/boss_level.gd" id="1_johrn"]
+[ext_resource type="Script" path="res://scripts/poko.gd" id="2_8fn7u"]
+[ext_resource type="PackedScene" uid="uid://drm72bsls152i" path="res://scenes/prototypeEnemy.tscn" id="2_ixilr"]
+[ext_resource type="PackedScene" uid="uid://btmchq3g4fqhw" path="res://scenes/player.tscn" id="3_jbx6x"]
+[ext_resource type="Texture2D" uid="uid://byp3oyx65fowu" path="res://resources/png/background.png" id="3_ry2wt"]
+[ext_resource type="PackedScene" uid="uid://dhle2updlchyp" path="res://scenes/ui.tscn" id="6_w65v3"]
+[ext_resource type="Texture2D" uid="uid://krouu58avilk" path="res://resources/png/ground.png" id="8_10r2c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0b6xl"]
+size = Vector2(32, 32)
+
+[node name="boss_level" type="Node2D"]
+script = ExtResource("1_johrn")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(-6, 12)
+scale = Vector2(36.52, 1.002)
+script = ExtResource("2_8fn7u")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D4"]
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_0b6xl")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576, 351)
+texture = ExtResource("3_ry2wt")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(1152, 648)
+rotation = -1.57079
+scale = Vector2(36, 1.002)
+script = ExtResource("2_8fn7u")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D3"]
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_0b6xl")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(-32, 617)
+rotation = -1.57079
+scale = Vector2(36, 1.002)
+script = ExtResource("2_8fn7u")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D2"]
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_0b6xl")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 617)
+scale = Vector2(36, 1.002)
+script = ExtResource("2_8fn7u")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_0b6xl")
+
+[node name="player" parent="." instance=ExtResource("3_jbx6x")]
+position = Vector2(576, 592)
+
+[node name="enemy" parent="." instance=ExtResource("2_ixilr")]
+position = Vector2(600, 416)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 368)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -1.0
+offset_top = 648.0
+offset_right = 1178.0
+offset_bottom = 693.0
+color = Color(0, 0, 0, 1)
+
+[node name="ui" parent="." instance=ExtResource("6_w65v3")]
+offset_top = 56.0
+offset_bottom = 56.0
+
+[node name="Ground" type="Sprite2D" parent="."]
+position = Vector2(576, 633)
+texture = ExtResource("8_10r2c")
